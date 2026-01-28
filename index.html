@@ -3,32 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Tool Box - Viral Prompts</title>
-    <meta name="description" content="Free AI Tool Box - Best AI prompts for Instagram, Coding, and Business.">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7979903176472864" crossorigin="anonymous"></sc
-    <meta name="keywords" content="AI Prompt Generator, Free AI Prompts, ChatGPT Prompts">
-    <meta name="google-site-verification" content="EANYEnRFk65jwwdnlx_-Lp8FY-tW864NK65mDDsO6y4" />
-        body { font-family: 'Segoe UI', sans-serif; background: #121212; color: white; text-align: center; margin: 0; padding: 20px; }
-        .card { background: #1e1e1e; padding: 20px; margin: 15px auto; border-radius: 12px; border: 1px solid #333; max-width: 500px; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        .footer-links { margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; font-size: 14px; }
-        .footer-links a { color: #bbb; text-decoration: none; margin: 0 10px; }
+    <title>AI Viral Prompt Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 20px; }
+        .search-box { width: 80%; padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+        #container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        h3 { color: #333; margin-bottom: 10px; font-size: 18px; }
+        p { color: #666; font-size: 14px; background: #f9f9f9; padding: 10px; border-radius: 5px; min-height: 60px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        button:hover { background: #0056b3; }
     </style>
 </head>
 <body>
-    <h1>🚀 Free AI Tool Box</h1>
-    <p>Copy viral prompts and boost your productivity!</p>
-    <div id="container">
-        </div>
 
-    
-    <div class="footer-links">
-        <a href="#">Privacy Policy</a> | 
-        <a href="#">Terms of Service</a> | 
-        <a href="mailto:your-email@gmail.com">Contact Us</a>
-    </div>
-</body>
-</html>
+    <h1>🚀 AI Viral Prompt Tool</h1>
+    <input type="text" id="searchInput" class="search-box" placeholder="Search prompts (e.g. Instagram, Coding...)">
+
+    <div id="container"></div>
+
     <script>
         const prompts = [
             { cat: '📸 Instagram', txt: 'Create a viral 30-day reel content calendar for a lifestyle vlogger.' },
@@ -46,18 +40,17 @@
         const container = document.getElementById('container');
         const searchInput = document.getElementById('searchInput');
 
-        // Naya Copy Function (Ise upar rakhna hai)
         function copyPrompt(id, btn) {
             const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text);
             
             const originalText = btn.innerText;
             btn.innerText = 'Copied! ✅';
-            btn.style.background = '#28a745'; // Green Color
+            btn.style.background = '#28a745'; 
             
             setTimeout(() => {
                 btn.innerText = originalText;
-                btn.style.background = '#007bff'; // Original Blue
+                btn.style.background = '#007bff'; 
             }, 2000);
         }
 
@@ -82,4 +75,5 @@
         searchInput.addEventListener('input', (e) => displayPrompts(e.target.value));
         displayPrompts();
     </script>
-    
+</body>
+</html>
