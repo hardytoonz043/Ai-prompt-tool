@@ -16,48 +16,70 @@
     </style>
 </head>
 <body>
-
     <h1>🚀 Free AI Tool Box</h1>
     <p>Copy viral prompts and boost your productivity!</p>
     <div id="container">
         </div>
 
-    <script>
-        const prompts = [
-            { cat: '📸 Instagram', txt: 'Create a viral reel script for a travel vlogger in Bali.' },
-            { cat: '💻 Coding', txt: 'Write a Python function to clean a CSV file automatically.' },
-            { cat: '🔥 Viral', txt: 'Generate an AI image prompt for a futuristic Indian wedding.' },
-            { cat: '💼 Business', txt: 'Write a professional email to a client for a project update.' }
-        ];const prompts = [
-    { cat: '📸 Instagram', txt: 'Create a viral 30-day reel content calendar for a lifestyle vlogger.' },
-    { cat: '🎨 AI Art', txt: 'Prompt: Hyper-realistic Indian street food stall at night, 8k resolution.' },
-    { cat: '💻 Coding', txt: 'Write a Python script to automate daily email reports.' },
-    { cat: '🎥 YouTube', txt: 'Generate a script for a "Life Hacks" video that will go viral.' },
-    { cat: '✍️ Blogging', txt: 'Write a SEO-friendly blog post about the benefits of AI in 2026.' },
-    { cat: '🇮🇳 Viral Art', txt: 'AI Prompt: Lord Shiva in a modern digital art style, cinematic lighting.' },
-    { cat: '👔 LinkedIn', txt: 'Write a professional post about starting a new AI tool business.' },
-    { cat: '🎮 Gaming', txt: 'Create a character description for a cyberpunk ninja warrior.' },
-    { cat: '🍱 Recipe', txt: 'Write a step-by-step recipe for a healthy protein-packed breakfast.' },
-    { cat: '🎓 Career', txt: 'Draft a cover letter for a remote software developer job.' }
-];
     
-
-        const container = document.getElementById('container');
-        prompts.forEach(p => {
-            container.innerHTML += `
-                <div class="card">
-                    <h3>${p.cat}</h3>
-                    <p id="p-${p.cat}">${p.txt}</p>
-                    <button onclick="alert('Prompt Copied!')">Copy Prompt</button>
-                </div>`;
-        });
-    </script>
-
     <div class="footer-links">
         <a href="#">Privacy Policy</a> | 
         <a href="#">Terms of Service</a> | 
         <a href="mailto:your-email@gmail.com">Contact Us</a>
     </div>
-
 </body>
 </html>
+    <script>
+        const prompts = [
+            { cat: '📸 Instagram', txt: 'Create a viral 30-day reel content calendar for a lifestyle vlogger.' },
+            { cat: '🎨 AI Art', txt: 'Prompt: Hyper-realistic Indian street food stall at night, 8k resolution.' },
+            { cat: '💻 Coding', txt: 'Write a Python script to automate daily email reports.' },
+            { cat: '🎥 YouTube', txt: 'Generate a script for a "Life Hacks" video that will go viral.' },
+            { cat: '✍️ Blogging', txt: 'Write a SEO-friendly blog post about the benefits of AI in 2026.' },
+            { cat: '🇮🇳 Viral Art', txt: 'AI Prompt: Lord Shiva in a modern digital art style, cinematic lighting.' },
+            { cat: '👔 LinkedIn', txt: 'Write a professional post about starting a new AI tool business.' },
+            { cat: '🎮 Gaming', txt: 'Create a character description for a cyberpunk ninja warrior.' },
+            { cat: '🍱 Recipe', txt: 'Write a step-by-step recipe for a healthy protein-packed breakfast.' },
+            { cat: '🎓 Career', txt: 'Draft a cover letter for a remote software developer job.' }
+        ];
+
+        const container = document.getElementById('container');
+        const searchInput = document.getElementById('searchInput');
+
+        // Naya Copy Function (Ise upar rakhna hai)
+        function copyPrompt(id, btn) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text);
+            
+            const originalText = btn.innerText;
+            btn.innerText = 'Copied! ✅';
+            btn.style.background = '#28a745'; // Green Color
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = '#007bff'; // Original Blue
+            }, 2000);
+        }
+
+        function displayPrompts(filter = '') {
+            container.innerHTML = '';
+            const filtered = prompts.filter(p => 
+                p.cat.toLowerCase().includes(filter.toLowerCase()) || 
+                p.txt.toLowerCase().includes(filter.toLowerCase())
+            );
+            
+            filtered.forEach((p, index) => {
+                const uniqueId = `prompt-${index}`;
+                container.innerHTML += `
+                    <div class="card">
+                        <h3>${p.cat}</h3>
+                        <p id="${uniqueId}">${p.txt}</p>
+                        <button onclick="copyPrompt('${uniqueId}', this)">Copy Prompt</button>
+                    </div>`;
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => displayPrompts(e.target.value));
+        displayPrompts();
+    </script>
+    
