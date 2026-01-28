@@ -75,5 +75,28 @@
         searchInput.addEventListener('input', (e) => displayPrompts(e.target.value));
         displayPrompts();
     </script>
+    <style>
+  @keyframes shake {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  .buy-btn {
+    animation: shake 2s infinite;
+    background: linear-gradient(45deg, #FF512F, #DD2476);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+</style>
+
+<div style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
+  <a href="https://wa.me/91YOUR_NUMBER?text=Hi, I am interested in buying your AI Prompt Tool for $2000. Let's talk!" class="buy-btn">
+    🚀 OWN THIS SAAS ($2000)
+  </a>
+</div>
 </body>
 </html>
